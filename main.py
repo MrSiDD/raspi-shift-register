@@ -29,4 +29,4 @@ except(KeyboardInterrupt, SystemExit):
 	print("Exit ...")
 
 finally:
-	GPIO.cleanup()
+	shiftRegister.cleanup()

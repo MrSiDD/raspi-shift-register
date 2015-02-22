@@ -51,3 +51,7 @@ class ShiftRegister():
 		time.sleep(0.2)
 		GPIO.output(self.clockPin, GPIO.LOW)
 		time.sleep(0.2)
+
+	def cleanup(self):
+		print("Ready for cleanup")
+		GPIO.cleanup()
