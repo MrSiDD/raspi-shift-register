@@ -2,8 +2,8 @@ from lib.ShiftRegister import ShiftRegister
 import time
 
 dataPin  = 14
-clockPin = 15
-latchPin = 18
+clockPin = 18
+latchPin = 15
 
 shiftRegister = ShiftRegister(dataPin, clockPin, latchPin)
 

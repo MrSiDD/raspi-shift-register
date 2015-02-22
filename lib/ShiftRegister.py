@@ -30,7 +30,8 @@ class ShiftRegister():
 	def setValue(self, value):
 		print("setValue: %s" % value)
 		for i in value:
-			if (value[i] > 0):
+			print 'i: {0}, value[i]: {1}'.format(i, value[i])
+			if (i > 0):
 				GPIO.output(self.dataPin, GPIO.HIGH)
 			else:
 				GPIO.output(self.dataPin, GPIO.LOW)
