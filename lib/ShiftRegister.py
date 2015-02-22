@@ -5,11 +5,11 @@ GPIO.setmode(GPIO.BCM)
 
 class ShiftRegister():
 
-	def __init__(self, dataPin, clockPin, clearPin):
+	def __init__(self, dataPin, clockPin, latchPin):
 		print("ShiftRegister.__init__")
 		self.dataPin = dataPin,
 		self.clockPin = clockPin
-		self.clearPin = clearPin
+		self.latchPin = latchPin
 
 		self.setupBoard()
 
@@ -23,13 +23,27 @@ class ShiftRegister():
 		GPIO.setup(self.clockPin, GPIO.OUT)
 		GPIO.output(self.clockPin, GPIO.LOW)
 
-		print("clearPin: %s" % self.clearPin)
-		GPIO.setup(self.clearPin, GPIO.OUT)
-		GPIO.output(self.clearPin, GPIO.LOW)
+		print("latchPin: %s" % self.latchPin)
+		GPIO.setup(self.latchPin, GPIO.OUT)
+		GPIO.output(self.latchPin, GPIO.LOW)
 
 	def setValue(self, value):
 		print("setValue: %s" % value)
-		self.tick()
+		for i in value:
+			if (value[i] > 0):
+				GPIO.output(self.dataPin, GPIO.HIGH)
+			else:
+				GPIO.output(self.dataPin, GPIO.LOW)
+			self.tick()
+
+		self.writeOut(self)
+
+	def writeOut(self):
+		print("writeOut")
+		GPIO.output(self.latchPin, GPIO.LOW)
+		time.sleep(0.2)
+		GPIO.OUTPUT(self.latchPin, GPIO.HIGH)
+		time.sleep(0.2)
 
 	def tick(self):
 		print("tick")
