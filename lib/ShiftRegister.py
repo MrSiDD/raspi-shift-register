@@ -36,18 +36,18 @@ class ShiftRegister():
 				GPIO.output(self.dataPin, GPIO.LOW)
 			self.tick()
 
-		self.writeOut(self)
+		self.writeOut()
 
 	def writeOut(self):
 		print("writeOut")
 		GPIO.output(self.latchPin, GPIO.LOW)
 		time.sleep(0.2)
-		GPIO.OUTPUT(self.latchPin, GPIO.HIGH)
+		GPIO.output(self.latchPin, GPIO.HIGH)
 		time.sleep(0.2)
 
 	def tick(self):
 		print("tick")
-		GPIO.ouput(self.clockPin, GPIO.HIGH)
+		GPIO.output(self.clockPin, GPIO.HIGH)
 		time.sleep(0.2)
 		GPIO.output(self.clockPin, GPIO.LOW)
 		time.sleep(0.2)
