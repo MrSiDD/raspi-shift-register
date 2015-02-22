@@ -25,7 +25,7 @@ try:
 	shiftRegister.setValue(1)
 	time.sleep(1)
 
-except(KeyboardInterrupt, SystemExit)
+except(KeyboardInterrupt, SystemExit):
 	print("Exit ...")
 
 finally:
