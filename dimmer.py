@@ -35,3 +35,5 @@ try:
 
 except(SystemError, KeyboardInterrupt):
     print("Done!")
+finally:
+    shiftRegister.cleanup()
