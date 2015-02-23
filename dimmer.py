@@ -34,7 +34,7 @@ try:
             else:
                 shiftRegister.setValue(nullLed)
 
-        time.sleep(0.2)
+            time.sleep(0.07)
 
 except(SystemError, KeyboardInterrupt):
     print("Done!")
