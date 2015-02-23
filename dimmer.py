@@ -27,7 +27,8 @@ try:
 
         for x in xrange(8):
             l = (t - delta[x]) % 2.0
-            if (l > 0):
+
+            if (l >= 1):
                 shiftRegister.setValue(tempLed)
             else:
                 shiftRegister.setValue(nullLed)
