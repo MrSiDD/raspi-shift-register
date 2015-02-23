@@ -20,15 +20,15 @@ try:
         tempLed = generateRandomLedState()
         for i in range(0,10):
             shiftRegister.setValue(tempLed)
-            time.sleep(0.001 * i)
+            time.sleep(0.33 * i)
             shiftRegister.setValue(nullLed)
-            time.sleep(0.001 * i)
+            time.sleep(0.33 * i)
 
         for i in reversed(range(0,10)):
             shiftRegister.setValue(tempLed)
-            time.sleep(0.001 * i)
+            time.sleep(0.33 * i)
             shiftRegister.setValue(nullLed)
-            time.sleep(0.001 * i)
+            time.sleep(0.33 * i)
 
 except(SystemError, KeyboardInterrupt):
     print("Done!")
