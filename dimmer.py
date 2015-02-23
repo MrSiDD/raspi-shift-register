@@ -16,19 +16,21 @@ def generateRandomLedState():
     return led
 
 try:
-    while True:
-        tempLed = generateRandomLedState()
-        for i in range(0,10):
-            shiftRegister.setValue(tempLed)
-            time.sleep(0.33 * i)
-            shiftRegister.setValue(nullLed)
-            time.sleep(0.33 * i)
+    startTime = time.time()
+    period = 1
+    delta = [x*0.33 for x in xrange(8)]
 
-        for i in reversed(range(0,10)):
-            shiftRegister.setValue(tempLed)
-            time.sleep(0.33 * i)
-            shiftRegister.setValue(nullLed)
-            time.sleep(0.33 * i)
+    while True:
+        t = time.time() - startTime
+        t = t/period
+        tempLed = generateRandomLedState()
+
+        for x in xrange(8):
+            l = (t - delta[x]) % 2.0
+            if (l > 0):
+                shiftRegister.setValue(tempLed)
+            else:
+                shiftRegister.setValue(nullLed)
 
 except(SystemError, KeyboardInterrupt):
     print("Done!")
