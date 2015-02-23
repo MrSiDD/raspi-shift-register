@@ -18,7 +18,7 @@ def generateRandomLedState():
 try:
     startTime = time.time()
     period = 1
-    timeFactor=0.5
+    timeFactor=0.33
     delta = [x*timeFactor for x in xrange(8)]
     tempLed = generateRandomLedState()
 
