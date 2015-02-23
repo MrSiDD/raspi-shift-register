@@ -26,6 +26,8 @@ try:
         t = time.time() - startTime
         t = t/period
 
+        tempLed = generateRandomLedState()
+
         for x in xrange(8):
             l = (t - delta[x]) % 2.0
 
