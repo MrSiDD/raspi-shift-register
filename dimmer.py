@@ -19,11 +19,11 @@ try:
     startTime = time.time()
     period = 1
     delta = [x*0.33 for x in xrange(8)]
+    tempLed = generateRandomLedState()
 
     while True:
         t = time.time() - startTime
         t = t/period
-        tempLed = generateRandomLedState()
 
         for x in xrange(8):
             l = (t - delta[x]) % 2.0
