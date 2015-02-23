@@ -26,8 +26,6 @@ try:
         t = time.time() - startTime
         t = t/period
 
-        tempLed = generateRandomLedState()
-
         for x in xrange(8):
             l = (t - delta[x]) % 2.0
 
@@ -35,6 +33,8 @@ try:
                 shiftRegister.setValue(tempLed)
             else:
                 shiftRegister.setValue(nullLed)
+
+        time.sleep(0.2)
 
 except(SystemError, KeyboardInterrupt):
     print("Done!")
